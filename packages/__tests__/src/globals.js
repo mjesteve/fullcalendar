@@ -128,7 +128,7 @@ function describeOptions(optName, hash, callback) {
     }
     opts = $.extend(true, {}, opts)
 
-    describe(desc, function() {
+    describe(desc.toString(), function() {
       pushOptions(opts)
       callback(val)
     })
@@ -137,7 +137,7 @@ function describeOptions(optName, hash, callback) {
 
 function describeValues(hash, callback) {
   $.each(hash, function(desc, val) {
-    describe(desc, function() {
+    describe(desc.toString(), function() {
       callback(val)
     })
   })

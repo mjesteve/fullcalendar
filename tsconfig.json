@@ -10,7 +10,6 @@
     ],
     "allowSyntheticDefaultImports": true,
     "noUnusedLocals": true,
-    "noImplicitUseStrict": true,
     "importHelpers": true,
     "resolveJsonModule": true,
     "allowJs": true,
@@ -21,6 +20,7 @@
       "@fullcalendar/core/*": [ "packages/core/src/*" ],
       "@fullcalendar/interaction": [ "packages/interaction/src/main" ],
       "@fullcalendar/daygrid": [ "packages/daygrid/src/main" ],
+      "@fullcalendar/yearview": [ "packages/yearview/src/main" ],
       "@fullcalendar/timegrid": [ "packages/timegrid/src/main" ],
       "@fullcalendar/list": [ "packages/list/src/main" ],
       "@fullcalendar/rrule": [ "packages/rrule/src/main" ],
@@ -37,13 +37,13 @@
       "package-tests/*": [ "packages/__tests__/src/*" ]
     },
     "rootDir": ".",
-    "outDir": "tmp/tsc-output"
+    "outDir": "tmp/tsc-output",
+    "skipLibCheck": true,
+    "incremental": true
   },
   "include": [
     "packages/*/src/main.ts",
     "packages/core/src/locales/*.js",
-    "packages/__tests__/src/**/*.js",
-    "packages-premium/*/src/main.ts",
-    "packages-premium/__tests__/src/**/*.js"
+    "packages-premium/*/src/main.ts"
   ]
 }

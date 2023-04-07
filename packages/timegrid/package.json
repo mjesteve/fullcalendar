@@ -1,5 +1,5 @@
 {
-  "private": true,
+  "private": false,
   "name": "@fullcalendar/timegrid",
   "version": "4.3.0",
   "title": "FullCalendar Time Grid Plugin",

@@ -1,0 +1,16 @@
+{
+  "private": false,
+  "name": "@fullcalendar/yearview",
+  "version": "4.3.0",
+  "title": "FullCalendar Year View Plugin",
+  "description": "Display events a full year view",
+  "docs": "https://fullcalendar.io/docs/month-view",
+  "browserGlobal": "FullCalendarYearView",
+  "peerDependencies": {
+    "@fullcalendar/core": "~4.3.0",
+    "moment": "^2.24.0"
+  },
+  "devDependencies": {
+    "@fullcalendar/core": "~4.3.0"
+  }
+}

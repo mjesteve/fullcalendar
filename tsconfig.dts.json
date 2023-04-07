@@ -4,6 +4,7 @@
     "declaration": true,
     "emitDeclarationOnly": true,
     "allowJs": false,
-    "checkJs": false
+    "checkJs": false,
+    "incremental": false
   }
 }

@@ -7,6 +7,7 @@ const { writePkgLicenses } = require('./scripts/lib/pkg-license')
 const { minifyJs, minifyCss } = require('./scripts/lib/minify')
 const { lint } = require('./scripts/lib/lint')
 const { archive } = require('./scripts/lib/archive')
+const { buildStyles } = require('./scripts/sass-args')
 
 
 const buildJs = exports.buildJs = series(
@@ -19,7 +20,7 @@ const watchJs = exports.watchJs = series(
   writePkgJsons, // important for node-resolution
   shellTask('npm:tsc:debug'),
   parallel(
-    shellTask('npm:tsc:watch'), // TODO: better system then two consecutive compiles
+    shellTask('npm:tsc:watch'), // will be fast 2nd time b/c of incremental:true
     shellTask('npm:rollup:watch')
   )
 )
@@ -38,14 +39,16 @@ exports.build = parallel(
     minifyJs
   ),
   series(
-    shellTask('npm:sass'),
+    //shellTask('npm:sass'),
+    shellTask('sass --no-source-map '+buildStyles()),
     minifyCss
   )
 )
 
 exports.watch = parallel( // doesn't do everything build does
   watchJs,
-  shellTask('npm:sass:watch')
+  //shellTask('npm:sass:watch')
+  shellTask('sass --watch '+buildStyles())
 )
 
 exports.minify = parallel(minifyJs, minifyCss)
