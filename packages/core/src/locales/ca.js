@@ -12,7 +12,8 @@ export default {
     month: "Mes",
     week: "Setmana",
     day: "Dia",
-    list: "Agenda"
+    list: "Agenda",
+    year: "Any"
   },
   weekLabel: "Set",
   allDayText: "Tot el dia",

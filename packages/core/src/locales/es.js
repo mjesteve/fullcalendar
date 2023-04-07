@@ -12,7 +12,8 @@ export default {
     month: "Mes",
     week: "Semana",
     day: "Día",
-    list: "Agenda"
+    list: "Agenda",
+    year: "Año"
   },
   weekLabel: "Sm",
   allDayHtml: "Todo<br/>el día",
