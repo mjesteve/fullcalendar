@@ -1,5 +1,5 @@
 import { Seg, DaySeries, DateRange, DateMarker } from '@fullcalendar/core'
-//import moment from 'moment'
+import moment from 'moment'
 
 export interface DayTableSeg extends Seg {
     row: number
@@ -55,7 +55,8 @@ export default class DayTable {
     }
 
     sliceRange(range: DateRange): DayTableSeg[] {
-        //let firstDayRangeIni = moment(range.start).startOf('month'); console.log('firstDayRangeIni',firstDayRangeIni.toString());
+
+        let firstDayRangeIni = moment(range.start).startOf('month'); console.log('firstDayRangeIni',firstDayRangeIni.toString());
         
         let { colCnt } = this
         console.log('colCnt', colCnt)
