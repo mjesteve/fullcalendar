@@ -86,10 +86,12 @@ export default class DayGridFillRenderer extends FillRenderer {
       (seg.el as HTMLTableCellElement).colSpan = endCol - startCol;
     trEl.appendChild(seg.el)
 
-    if (endCol < colCnt) {
+    //if (endCol < colCnt) { //hiedra
+    if (endCol < colCnt-1) {
       appendToElement(trEl,
         // will create (colCnt - endCol) td's
-        new Array(colCnt - endCol + 1).join(EMPTY_CELL_HTML)
+        //new Array(colCnt - endCol + 1).join(EMPTY_CELL_HTML)
+        new Array(colCnt - endCol).join(EMPTY_CELL_HTML) //hiedra
       )
     }
 

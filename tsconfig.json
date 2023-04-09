@@ -39,7 +39,8 @@
     "rootDir": ".",
     "outDir": "tmp/tsc-output",
     "skipLibCheck": true,
-    "incremental": true
+    "incremental": false,
+    "sourceMap": true
   },
   "include": [
     "packages/*/src/main.ts",

@@ -1,5 +1,5 @@
 import { Seg, DaySeries, DateRange, DateMarker } from '@fullcalendar/core'
-import moment from 'moment'
+//import moment from 'moment'
 
 export interface DayTableSeg extends Seg {
     row: number
@@ -22,10 +22,11 @@ export default class DayTable {
     private daySeries: DaySeries
 
     constructor(daySeries: DaySeries, breakOnWeeks: boolean) {
+        this.rowCnt = 12
+        this.colCnt = 31
         this.daySeries = daySeries
         this.cells = this.buildCells()
         this.headerDates = this.buildHeaderDates()
-        this.rowCnt = 12
     }
 
     private buildCells() {
@@ -54,29 +55,31 @@ export default class DayTable {
     }
 
     sliceRange(range: DateRange): DayTableSeg[] {
+        //let firstDayRangeIni = moment(range.start).startOf('month'); console.log('firstDayRangeIni',firstDayRangeIni.toString());
+        
+        let { colCnt } = this
+        console.log('colCnt', colCnt)
+        let seriesSeg = this.daySeries.sliceRange(range)
         let segs: DayTableSeg[] = []
 
-        let firstMonthStart = moment(range.start).startOf('month')
+        if (seriesSeg) {
+            let { firstIndex, lastIndex } = seriesSeg
+            let index = firstIndex
 
-        let currentMonthStart = moment(range.start).startOf('month')
-        let currentMonthEnd = moment(range.start).endOf('month')
+            while (index <= lastIndex) {
+                let row = Math.floor(index / colCnt)
+                let nextIndex = Math.min((row + 1) * colCnt, lastIndex + 1)
 
-        let lastMonthStart = moment(range.end).startOf('month')
-        if (lastMonthStart.year() > currentMonthStart.year()) {
-            lastMonthStart = currentMonthStart.clone().month(11).startOf('month')
-        }
+                segs.push({
+                row,
+                firstCol: index % colCnt,
+                lastCol: (nextIndex - 1) % colCnt,
+                isStart: seriesSeg.isStart && index === firstIndex,
+                isEnd: seriesSeg.isEnd && (nextIndex - 1) === lastIndex
+                })
 
-        while (currentMonthStart.isSameOrBefore(lastMonthStart)) {
-            segs.push({
-                row: currentMonthStart.month(),
-                firstCol: (currentMonthStart.isAfter(range.start)) ? 0 : range.start.getDate() - 1,
-                lastCol: (currentMonthEnd.isBefore(range.end)) ? currentMonthEnd.date() - 1 : range.end.getDate() - 1,
-                isStart: currentMonthStart.isSame(firstMonthStart),
-                isEnd: currentMonthStart.isSame(lastMonthStart)
-            })
-
-            currentMonthStart.add(1, 'months')
-            currentMonthEnd = currentMonthStart.clone().endOf('month')
+                index = nextIndex
+            }
         }
 
         return segs

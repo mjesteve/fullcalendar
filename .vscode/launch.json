@@ -1,0 +1,26 @@
+{
+    // Use IntelliSense para saber los atributos posibles.
+    // Mantenga el puntero para ver las descripciones de los existentes atributos.
+    // Para más información, visite: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+      {
+          "name": "Launch File Allow File Access - chrome (Debug version)",
+          "type": "chrome",
+          "request": "launch",
+          "sourceMaps": true,
+          "runtimeArgs": ["--allow-file-access-from-files", "--auto-ssl-client-auth"],
+          "url": "file:///${workspaceRoot}/examples/year-view.html",
+          "webRoot": "${workspaceRoot}\\dist"
+      },
+        {
+          "type": "msedge",
+          "request": "launch",
+          "sourceMaps": true,
+          "name": "Launch Edge against localhost",
+          "url": "file:///C:\\Develop\\mjesteve\\LibreriasJS\\fullcalendar\\examples\\year-view.html",
+          "webRoot": "${workspaceFolder}",
+          //"outFiles": ["${workspaceFolder}/out/**/*.js"]
+        }
+    ]
+}
