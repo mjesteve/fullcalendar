@@ -473,8 +473,8 @@ export default class DayGrid extends DateComponent<DayGridProps> {
         },
         dayEl: this.getCellEl(row, col),
         relativeRect: {
-          left: colPositions.lefts[col], // + (leftPosition - this.colPositions.lefts[0]),
-          right: colPositions.rights[col], // + (leftPosition - this.colPositions.lefts[0]),
+          left: colPositions.lefts[col],
+          right: colPositions.rights[col],
           top: rowPositions.tops[row],
           bottom: rowPositions.bottoms[row]
         }

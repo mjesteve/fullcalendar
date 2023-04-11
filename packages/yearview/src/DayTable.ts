@@ -1,5 +1,4 @@
 import { Seg, DaySeries, DateRange, DateMarker } from '@fullcalendar/core'
-//import moment from 'moment'
 
 export interface DayTableSeg extends Seg {
     row: number
@@ -78,37 +77,34 @@ export default class DayTable {
         let segs: DayTableSeg[] = []
 
         if (seriesSeg) {
-            //tenemos que sumarle todos los inválidos, hasta firstIndex_date, y hasta lastindex_date
+            
             let { firstIndex, lastIndex } = seriesSeg
-            //if( Math.floor(firstIndex / colCnt) > 0 || Math.floor(lastIndex / colCnt) > 0 ){
-                
-                for ( let r=0; r<this.invalidIndex.length; r++)
-                {
-                    if( this.invalidIndex[r].idxini!=-1 ){
-                        let value:number = 0
-                        if( firstIndex >= this.invalidIndex[r].idxini ){
-                            if(firstIndex >= this.invalidIndex[r].idxfin )
-                                value = this.invalidIndex[r].idxfin - this.invalidIndex[r].idxini + 1
-                            else
-                                value = firstIndex - this.invalidIndex[r].idxini + 1
+            //Hiedra: skip invalid dates                
+            for ( let r=0; r<this.invalidIndex.length; r++)
+            {
+                if( this.invalidIndex[r].idxini!=-1 ){
+                    let value:number = 0
+                    if( firstIndex >= this.invalidIndex[r].idxini ){
+                        if(firstIndex >= this.invalidIndex[r].idxfin )
+                            value = this.invalidIndex[r].idxfin - this.invalidIndex[r].idxini + 1
+                        else
+                            value = firstIndex - this.invalidIndex[r].idxini + 1
 
-                            firstIndex += value
-                            lastIndex += value
+                        firstIndex += value
+                        lastIndex += value
 
-                        }else if( lastIndex >= this.invalidIndex[r].idxini ){
-                            if(lastIndex >= this.invalidIndex[r].idxfin )
-                                value = this.invalidIndex[r].idxfin - this.invalidIndex[r].idxini + 1
-                            else
-                                value = firstIndex - this.invalidIndex[r].idxini + 1
-                            lastIndex += value
+                    }else if( lastIndex >= this.invalidIndex[r].idxini ){
+                        if(lastIndex >= this.invalidIndex[r].idxfin )
+                            value = this.invalidIndex[r].idxfin - this.invalidIndex[r].idxini + 1
+                        else
+                            value = firstIndex - this.invalidIndex[r].idxini + 1
+                        lastIndex += value
 
-                        }else{
-                            break;
-                        }                        
-                    }
+                    }else{
+                        break;
+                    }                        
                 }
-                
-            //}
+            }
 
             let index = firstIndex
 
@@ -130,10 +126,6 @@ export default class DayTable {
 
         return segs
     }
-    
-    /*sliceRangeValidated(range: DateRange): DayTableSeg[] {
-
-    }*/
 
 }
 

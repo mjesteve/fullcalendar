@@ -6,6 +6,7 @@ import {
   Seg
 } from '@fullcalendar/core'
 import DayGrid, { DayGridSeg } from './DayGrid'
+import moment from 'moment'
 
 
 const EMPTY_CELL_HTML = '<td style="pointer-events:none"></td>'
@@ -56,6 +57,12 @@ export default class DayGridFillRenderer extends FillRenderer {
     let { colCnt, isRtl } = dayGrid
     let leftCol = isRtl ? (colCnt - 1 - seg.lastCol) : seg.firstCol
     let rightCol = isRtl ? (colCnt - 1 - seg.firstCol) : seg.lastCol
+    //Hiedra: skip invalid dates
+    if(!isRtl){ //TODO: isRtl
+      let aa = dayGrid.calendar.state.currentDate.getFullYear()
+      rightCol = Math.min( rightCol, moment(new Date(aa,seg.row,1)).daysInMonth()-1)
+    }
+
     let startCol = leftCol
     let endCol = rightCol // + 1 Hiedra
     let className
@@ -82,8 +89,7 @@ export default class DayGridFillRenderer extends FillRenderer {
       )
     }
 
-    if( endCol != startCol ) //hiedra
-      (seg.el as HTMLTableCellElement).colSpan = endCol - startCol;
+    (seg.el as HTMLTableCellElement).colSpan = endCol - startCol + 1; //hiedra (add +1)
     trEl.appendChild(seg.el)
 
     //if (endCol < colCnt) { //hiedra
