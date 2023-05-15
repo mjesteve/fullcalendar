@@ -4,6 +4,8 @@ export default {
   buttonText: {
     prev: "Précédent",
     next: "Suivant",
+    prevYear: 'Année précédente',
+    nextYear: 'Année suivante',
     today: "Aujourd'hui",
     year: "Année",
     month: "Mois",

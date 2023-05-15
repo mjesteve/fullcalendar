@@ -19,6 +19,7 @@ module.exports = function(config) {
       // fullcalendar CSS must be manually included :(
       'packages/core/dist/main.css', // always needs to be first
       'packages/daygrid/dist/main.css', // because timegrid depends on it
+      'packages/yearview/dist/main.css', // because timegrid depends on it
       'packages-premium/timeline/dist/main.css', // because resource-timeline depends on it
       'packages?(-premium)/*/dist/main.css',
       { pattern: 'packages?(-premium)/*/dist/main.css.map', included: false, nocache: true, watched: false },

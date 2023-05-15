@@ -120,7 +120,6 @@
   /* Add.Hiedra. .fc-row .fc-highlight-skeleton. The selection must be moved by the width of the "month name" column. */
   .fc-row .fc-highlight-skeleton {
     left: 1.2cqw; /* 1.25em */
-    z-index: 3;
   }
 
   .fc-day-number-weekday {
@@ -157,12 +156,12 @@
     z-index: 9999;
     background-color: transparent !important;
     /* user of this util can scope within a lower z-index */
-    /* top: 50%;
+    top: 50%;
     left: 50%;
     width: 40px;
     height: 40px;
     margin-left: -20px;
-    margin-top: -20px; */
+    margin-top: -20px;
   }
 
   /* DayGrid events
@@ -199,6 +198,12 @@
     /* don't put a border between event cells */
     border-top: 0;
     text-align: center;
+  }
+
+  .fc-bgevent-skeleton,
+  .fc-highlight-skeleton,
+  .fc-mirror-skeleton {
+    left: 1.2cqw;
   }
   
 }

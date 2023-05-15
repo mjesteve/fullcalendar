@@ -8,11 +8,14 @@ export default {
   buttonText: {
     prev: "Prec",
     next: "Succ",
+    prevYear: 'Anno precedente',
+    nextYear: 'Anno successivo',
     today: "Oggi",
     month: "Mese",
     week: "Settimana",
     day: "Giorno",
-    list: "Agenda"
+    list: "Agenda",
+    year: "Anno"
   },
   weekLabel: "Sm",
   allDayHtml: "Tutto il<br/>giorno",

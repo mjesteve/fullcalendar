@@ -48,7 +48,6 @@ function buildConfigs() {
   for (let pkgStruct of pkgStructs) {
     ownBrowserGlobals[pkgStruct.name] = pkgStruct.browserGlobal
   }
-
   return [
     ...buildPkgConfigs(ownBrowserGlobals, isDev),
     ...buildLocaleConfigs(ownBrowserGlobals),
@@ -138,12 +137,12 @@ function buildLocaleConfigs(ownBrowserGlobals) {
   let corePkgStruct = getCorePkgStruct()
   let coreTmpDir = path.join('tmp/tsc-output', corePkgStruct.srcDir)
   let localePaths = glob.sync('locales/*.js', { cwd: coreTmpDir })
+
   let external = Object.keys(ownBrowserGlobals)
   let configs = []
 
   for (let localePath of localePaths) {
     let localeName = path.basename(localePath).replace(/\..*$/, '')
-
     configs.push({
       onwarn,
       watch: WATCH_OPTIONS,
@@ -170,8 +169,8 @@ function buildLocaleConfigs(ownBrowserGlobals) {
       name: 'FullCalendarLocalesAll',
       format: 'umd'
     },
-    plugins: [
-      multiEntry({ exports: 'array' })
+    plugins: [ //multiEntry({ exports: 'array' })
+      multiEntry()
     ]
   })
 

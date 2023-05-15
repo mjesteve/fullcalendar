@@ -8,7 +8,8 @@ export default {
     month: "Mês",
     week: "Semana",
     day: "Dia",
-    list: "Compromissos"
+    list: "Compromissos",
+    year: "Ano"
   },
   weekLabel: "Sm",
   allDayText: "dia inteiro",

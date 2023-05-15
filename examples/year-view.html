@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset='utf-8' />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <link href='../packages/core/dist/main.css' rel='stylesheet' />
     <link href='../packages/daygrid/dist/main.css' rel='stylesheet' />
     <link href='../packages/yearview/dist/main.css' rel='stylesheet' />
@@ -11,6 +12,7 @@
     <script src='../packages/interaction/dist/main.js'></script>
     <script src='../packages/daygrid/dist/main.js'></script>
     <script src='../packages/yearview/dist/main.js'></script>
+    <title> yearview</title>
     <script>
 
         document.addEventListener('DOMContentLoaded', function () {
@@ -31,11 +33,14 @@
                 },
                 selectable: true,
                 editable: true,
-                dateClick: function(info) {
+                /*dateClick: function(info) {
                     document.getElementById('lblstatus').value = info.dateStr;
                 },
                 select: function(info) {
                     document.getElementById('lblstatus').value = info.startStr + ' to ' + info.endStr;
+                },*/
+                dateDoubleClick: function(info) {
+                    document.getElementById('lblstatus').value = info.dateStr;
                 },
 
                 defaultDate: '2023-01-01',

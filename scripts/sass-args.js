@@ -3,7 +3,7 @@ const path = require('path')
 const { existsSync } = require('fs')
 const { pkgStructs } = require('./lib/pkg-struct')
 
-exports.buildStyles = buildStyles;
+exports.buildStyles = buildStyles
 
 function buildStyles() {
 
@@ -17,5 +17,5 @@ function buildStyles() {
       args.push(srcPath + ':' + destPath)
     }
   }
-  return args.join(' ');
+  return args.join(' ')
 };

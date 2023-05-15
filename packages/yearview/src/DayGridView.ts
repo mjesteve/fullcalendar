@@ -10,8 +10,8 @@ import {
 } from '@fullcalendar/core'
 import AbstractDayGridView from './AbstractDayGridView'
 import SimpleDayGrid from './SimpleDayGrid'
-import DayTable from "./DayTable";
-import {locale as momentsetlocale} from 'moment'; //Hiedra
+import DayTable from './DayTable'
+import { locale as momentsetlocale } from 'moment' // Hiedra
 
 export default class DayGridView extends AbstractDayGridView {
 
@@ -23,8 +23,8 @@ export default class DayGridView extends AbstractDayGridView {
 
   constructor(_context: ComponentContext, viewSpec: ViewSpec, dateProfileGenerator: DateProfileGenerator, parentEl: HTMLElement) {
     super(_context, viewSpec, dateProfileGenerator, parentEl)
-    //set moment locale
-    momentsetlocale(this.context.dateEnv.locale.codeArg.toString()) //Hiedra
+    // set moment locale
+    momentsetlocale(this.context.dateEnv.locale.codeArg.toString()) // Hiedra
 
     if (this.opt('columnHeader')) {
       this.header = new DayHeader(

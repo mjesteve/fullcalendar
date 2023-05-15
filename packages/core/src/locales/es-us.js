@@ -8,6 +8,9 @@ export default {
   buttonText: {
     prev: "Ant",
     next: "Sig",
+    prevYear: 'Año anterior',
+    nextYear: 'Año siguiente',
+    year: "Año",
     today: "Hoy",
     month: "Mes",
     week: "Semana",

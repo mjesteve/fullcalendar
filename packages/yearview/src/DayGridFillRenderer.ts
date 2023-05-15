@@ -14,7 +14,7 @@ const EMPTY_CELL_HTML = '<td style="pointer-events:none"></td>'
 
 export default class DayGridFillRenderer extends FillRenderer {
 
-  fillSegTag: string = 'td' // override the default tag name
+  fillSegTag: string = 'td' //  override the default tag name
   dayGrid: DayGrid
 
   constructor(dayGrid: DayGrid) {
@@ -25,7 +25,7 @@ export default class DayGridFillRenderer extends FillRenderer {
 
   renderSegs(type: string, segs: DayGridSeg[]) {
 
-    // don't render timed background events
+    //  don't render timed background events
     if (type === 'bgEvent') {
       segs = segs.filter(function(seg) {
         return seg.eventRange.def.allDay
@@ -51,20 +51,20 @@ export default class DayGridFillRenderer extends FillRenderer {
     return els
   }
 
-  // Generates the HTML needed for one row of a fill. Requires the seg's el to be rendered.
+  //  Generates the HTML needed for one row of a fill. Requires the seg's el to be rendered.
   renderFillRow(type, seg: Seg): HTMLElement {
     let { dayGrid } = this
     let { colCnt, isRtl } = dayGrid
     let leftCol = isRtl ? (colCnt - 1 - seg.lastCol) : seg.firstCol
     let rightCol = isRtl ? (colCnt - 1 - seg.firstCol) : seg.lastCol
-    //Hiedra: skip invalid dates
-    if(!isRtl){ //TODO: isRtl
+    // Hiedra: skip invalid dates
+    if (!isRtl) { // TODO: isRtl
       let aa = dayGrid.calendar.state.currentDate.getFullYear()
-      rightCol = Math.min( rightCol, moment(new Date(aa,seg.row,1)).daysInMonth()-1)
+      rightCol = Math.min( rightCol, moment(new Date(aa,seg.row,1)).daysInMonth() - 1)
     }
 
     let startCol = leftCol
-    let endCol = rightCol // + 1 Hiedra
+    let endCol = rightCol //  + 1 Hiedra
     let className
     let skeletonEl: HTMLElement
     let trEl: HTMLTableRowElement
@@ -84,20 +84,20 @@ export default class DayGridFillRenderer extends FillRenderer {
 
     if (startCol > 0) {
       appendToElement(trEl,
-        // will create (startCol + 1) td's
+        //  will create (startCol + 1) td's
         new Array(startCol + 1).join(EMPTY_CELL_HTML)
       )
     }
 
-    (seg.el as HTMLTableCellElement).colSpan = endCol - startCol + 1; //hiedra (add +1)
+    (seg.el as HTMLTableCellElement).colSpan = endCol - startCol + 1 // hiedra (add +1)
     trEl.appendChild(seg.el)
 
-    //if (endCol < colCnt) { //hiedra
-    if (endCol < colCnt-1) {
+    // if (endCol < colCnt) { // hiedra
+    if (endCol < colCnt - 1) {
       appendToElement(trEl,
-        // will create (colCnt - endCol) td's
-        //new Array(colCnt - endCol + 1).join(EMPTY_CELL_HTML)
-        new Array(colCnt - endCol).join(EMPTY_CELL_HTML) //hiedra
+        //  will create (colCnt - endCol) td's
+        // new Array(colCnt - endCol + 1).join(EMPTY_CELL_HTML)
+        new Array(colCnt - endCol).join(EMPTY_CELL_HTML) // hiedra
       )
     }
 

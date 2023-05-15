@@ -39,16 +39,16 @@ exports.build = parallel(
     minifyJs
   ),
   series(
-    //shellTask('npm:sass'),
-    shellTask('sass --no-source-map '+buildStyles()),
+    // shellTask('npm:sass'),
+    shellTask('sass --no-source-map ' + buildStyles()),
     minifyCss
   )
 )
 
 exports.watch = parallel( // doesn't do everything build does
   watchJs,
-  //shellTask('npm:sass:watch')
-  shellTask('sass --watch '+buildStyles())
+  // shellTask('npm:sass:watch')
+  shellTask('sass --watch ' + buildStyles())
 )
 
 exports.minify = parallel(minifyJs, minifyCss)

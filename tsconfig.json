@@ -44,7 +44,7 @@
   },
   "include": [
     "packages/*/src/main.ts",
-    "packages/core/src/locales/*.js",
+    "packages/core/src/locales/*.js", "packages/core/src/locales-all-custom.ts",
     "packages-premium/*/src/main.ts"
   ]
 }

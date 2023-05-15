@@ -8,8 +8,10 @@ export default {
   buttonText: {
     prev: "Précédent",
     next: "Suivant",
-    today: "Aujourd'hui",
+    prevYear: 'Année précédente',
+    nextYear: 'Année suivante',
     year: "Année",
+    today: "Aujourd'hui",
     month: "Mois",
     week: "Semaine",
     day: "Jour",

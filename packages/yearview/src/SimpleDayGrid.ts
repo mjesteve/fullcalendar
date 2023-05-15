@@ -4,7 +4,7 @@ import {
   EventUiHash,
   DateSpan,
   EventInteractionState,
-  //DayTable, //hiedra
+  // DayTable, //hiedra
   Duration,
   DateComponent,
   DateRange,
@@ -13,7 +13,7 @@ import {
   ComponentContext
 } from '@fullcalendar/core'
 import { default as DayGrid, DayGridSeg } from './DayGrid'
-import { default as DayTable } from "./DayTable"; //hiedra
+import { default as DayTable } from './DayTable' // hiedra
 
 export interface SimpleDayGridProps {
   dateProfile: DateProfile | null
@@ -74,7 +74,7 @@ export default class SimpleDayGrid extends DateComponent<SimpleDayGridProps> {
         dateSpan: rawHit.dateSpan,
         dayEl: rawHit.dayEl,
         rect: {
-          left: rawHit.relativeRect.left, //+ (positionLeft - this.dayGrid.colPositions.lefts[0]),
+          left: rawHit.relativeRect.left, // + (positionLeft - this.dayGrid.colPositions.lefts[0]),
           right: rawHit.relativeRect.right, // + (positionLeft - this.dayGrid.colPositions.lefts[0]),
           top: rawHit.relativeRect.top,
           bottom: rawHit.relativeRect.bottom

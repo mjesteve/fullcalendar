@@ -136,7 +136,7 @@ export default class DayGridEventRenderer extends SimpleDayGridEventRenderer {
           // create a container that occupies or more columns. append the event element.
           td = createElement('td', { className: 'fc-event-container' }, seg.el) as HTMLTableCellElement
           if (leftCol !== rightCol) {
-            td.colSpan = rightCol - leftCol //+ 1 Hiedra
+            td.colSpan = rightCol - leftCol // + 1 Hiedra
           } else { // a single-column segment
             loneCellMatrix[i][col] = td
           }
