@@ -115,12 +115,10 @@ export default class DayTable {
                 value = cellinvalid.idxfin - cellinvalid.idxini + 1
                 firstIndex += value
                 lastIndex += value
-            }
-            
-            if (lastIndex > cellinvalid.idxfin)
-              break;
+              }else{
+                break;
+              }
           }
-
         }
       }
 
