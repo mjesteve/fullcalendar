@@ -513,10 +513,13 @@
             var calendarEl = document.getElementById('calendar');
 
             var calendar = new FullCalendar.Calendar(calendarEl, {
-                defaultView: 'year',
+                defaultView: 'year', //dayGridMonth
                 plugins: ['interaction', 'dayGrid', 'yearView'],
                 timeZone: 'local',
-                weekNumberCalculation: 'ISO',
+      weekNumbers: false, //true: weeknumbers visibles
+      weekNumbersWithinDays: false,
+      weekNumberCalculation: 'ISO',
+      weekLabel: 'Sem',
                 firstDay: 1,
                 locales: ['en','es','ca','fr','pt','it'],
                 locale: 'es',

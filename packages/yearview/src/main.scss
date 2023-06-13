@@ -10,10 +10,32 @@
   font-size: 0.9cqw;
 }
 
+
+/* Colors
+--------------------------------------------------------------------------------------------------*/
+.fc-highlight { /* when user is selecting cells */
+  background: #bce8f1;
+  opacity: 0.3;
+}
+
+.fc-bgevent { /* default look for background events */
+  background: transparent;
+  opacity: 1;
+}
+
+.fc-nonbusiness { /* default look for non-business-hours areas */
+  /* will inherit .fc-bgevent's styles */
+  background: #d7d7d7;
+}
+
 /* DayGridView
 --------------------------------------------------------------------------------------------------*/
 
 /* day row structure */
+  
+.fc-year-view .fc-row.fc-widget-header {
+  padding-left: 2cqw;
+}
 
 .fc-year-container {
 
@@ -36,7 +58,7 @@
   .fc-row.fc-rigid .fc-content-skeleton {
     position: absolute;
     top: 0;
-    left: 1.2cqw;
+    left: 2cqw;
     right: 0;
   }
 
@@ -96,7 +118,7 @@
 
   .fc-row-monthname {
     height: 100%;
-    width: 1.2cqw; /* 1.25em; */
+    width: 2cqw; /* 1.25em; */
     position: absolute;
     text-align: center;
     border-right-width: 1px;
@@ -114,12 +136,12 @@
   }
 
   .fc-bg, .fc-content-skeleton {
-    left: 1.2cqw; /* 1.25em */
+    left: 2cqw; /* 1.25em */
   }
 
   /* Add.Hiedra. .fc-row .fc-highlight-skeleton. The selection must be moved by the width of the "month name" column. */
   .fc-row .fc-highlight-skeleton {
-    left: 1.2cqw; /* 1.25em */
+    left: 2cqw; /* 1.25em */
   }
 
   .fc-day-number-weekday {
@@ -203,7 +225,7 @@
   .fc-bgevent-skeleton,
   .fc-highlight-skeleton,
   .fc-mirror-skeleton {
-    left: 1.2cqw;
+    left: 2cqw;
   }
   
 }

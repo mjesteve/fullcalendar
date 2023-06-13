@@ -62,7 +62,7 @@ export default class DayGridView extends AbstractDayGridView {
         renderIntroHtml: this.renderHeadIntroHtml
       })
     }
-
+    
     this.simpleDayGrid.receiveProps({
       dateProfile,
       dayTable,

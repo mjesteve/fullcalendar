@@ -24,13 +24,12 @@ export default class DayHeader extends Component<DayTableHeaderProps> {
     parentEl.appendChild(
       this.el = htmlToElement(
         '<div class="fc-row ' + this.theme.getClass('headerRow') + '">' +
-          '<table class="' + this.theme.getClass('tableGrid') + '">' +
-            '<thead></thead>' +
-          '</table>' +
-        '</div>'
+        '<table class="' + this.theme.getClass('tableGrid') + '">' +
+          '<thead></thead>' +
+        '</table>' +
+      '</div>'
       )
     )
-
     this.thead = this.el.querySelector('thead')
   }
 
@@ -71,4 +70,4 @@ export default class DayHeader extends Component<DayTableHeaderProps> {
     this.thead.innerHTML = '<tr>' + parts.join('') + '</tr>'
   }
 
-}
+} 

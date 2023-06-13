@@ -68,7 +68,13 @@ export default class DayTable {
   }
 
   private buildHeaderDates() {
-    return []
+    let dates = []
+
+    for (let col = 0; col < this.colCnt; col++) {
+      dates.push(this.cells[0][col].date)
+    }
+
+    return dates
   }
 
   sliceRange(range: DateRange): DayTableSeg[] {
