@@ -89,12 +89,8 @@ export default class DayTable {
       // Hiedra: skip invalid dates
       for (let cellinvalid of this.invalidIndex) {
         
-        let value:number = 0
-
-        value = cellinvalid.idxfin - cellinvalid.idxini + 1
+        let value:number = cellinvalid.idxfin - cellinvalid.idxini + 1
         if (cellinvalid.idxini!=-1) {
-
-          if (firstIndex != lastIndex) {
 
             if (firstIndex >= cellinvalid.idxini) {
                 firstIndex += value
@@ -104,13 +100,6 @@ export default class DayTable {
                 lastIndex += value
             } else
                 break;
-
-          } else if (firstIndex >= cellinvalid.idxini) {
-                firstIndex += value
-                lastIndex += value
-          } else {
-              break;
-          }
         }
       }
 

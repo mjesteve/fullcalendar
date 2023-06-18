@@ -13,7 +13,7 @@
           "--allow-file-access-from-files",
           "--auto-ssl-client-auth"
         ],
-        "url": "file:///${workspaceRoot}/examples/year-view_plusdata.html",
+        "url": "file:///${workspaceRoot}/examples/year-view_plusdata_bgEvents.html",
         "webRoot": "${workspaceRoot}\\dist"
       },
       {
