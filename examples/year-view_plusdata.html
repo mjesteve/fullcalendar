@@ -524,6 +524,13 @@
                 locales: ['en','es','ca','fr','pt','it'],
                 locale: 'es',
                 columnHeader: true,
+                views: {
+                    year: {
+                        columnHeaderText: function(date) {
+                        return date.getDate().toString();
+                        }
+                    }
+                },                
                 header: {
                     left: 'prevYear,prev,next,nextYear today',
                     center: 'title',

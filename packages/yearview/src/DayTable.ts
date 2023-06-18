@@ -91,39 +91,25 @@ export default class DayTable {
         
         let value:number = 0
 
+        value = cellinvalid.idxfin - cellinvalid.idxini + 1
         if (cellinvalid.idxini!=-1) {
 
           if (firstIndex != lastIndex) {
 
             if (firstIndex >= cellinvalid.idxini) {
-                if (firstIndex >= cellinvalid.idxfin )
-                    value = cellinvalid.idxfin - cellinvalid.idxini + 1
-                else
-                    value = firstIndex - cellinvalid.idxini + 1
-
                 firstIndex += value
                 lastIndex += value
 
-            }else if (lastIndex >= cellinvalid.idxini) {
-                if(lastIndex >= cellinvalid.idxfin )
-                    value = cellinvalid.idxfin - cellinvalid.idxini + 1
-                else
-                    value = firstIndex - cellinvalid.idxini + 1
-
+            } else if (lastIndex >= cellinvalid.idxini) {
                 lastIndex += value
-
-            }else
+            } else
                 break;
 
-          }else{
-
-            if (firstIndex >= cellinvalid.idxini) {
-                value = cellinvalid.idxfin - cellinvalid.idxini + 1
+          } else if (firstIndex >= cellinvalid.idxini) {
                 firstIndex += value
                 lastIndex += value
-              }else{
-                break;
-              }
+          } else {
+              break;
           }
         }
       }
