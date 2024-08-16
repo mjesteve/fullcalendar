@@ -392,7 +392,7 @@ var vevents = [
       weekNumbers: false, //true: weeknumbers visibles
       weekNumbersWithinDays: false,
       weekNumberCalculation: 'ISO',
-      weekLabel: 'Sem',
+      weekLabel: 'Sm',
                 firstDay: 1,
                 locales: ['en','es','ca','fr','pt','it'],
                 locale: 'es',
@@ -409,6 +409,7 @@ var vevents = [
                     center: 'title',
                     right: 'year,dayGridMonth'
                 },
+                buttonText: {today: '* Hoy *'},
                 contentHeight: 'auto',
                 aspectRatio: 2.5,
                 selectable: true,
@@ -425,6 +426,7 @@ var vevents = [
                     if (event.rendering === 'background') 
                     {
                         var myrenderer = document.createElement("div");
+                        myrenderer.classList.add('anu-bg-event');       
                         myrenderer.style.backgroundColor = event.color;       
                         myrenderer.style.color = event.textColor;
                         myrenderer.innerHTML = event.title;
